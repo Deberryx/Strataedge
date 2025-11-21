@@ -17,8 +17,22 @@ export async function POST(request: Request) {
 
         // In a real application, you would validate the API key exists
         if (!process.env.RESEND_API_KEY) {
-            <p>${ message } </p>
-                `,
+            console.log("Missing RESEND_API_KEY, skipping email send.");
+            return NextResponse.json({ ok: true, message: "Message received (mock mode)" });
+        }
+
+        const { data, error } = await resend.emails.send({
+            from: "Strataedge <onboarding@resend.dev>",
+            to: ["delivered@resend.dev"],
+            subject: `New Contact Form Submission from ${name}`,
+            html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Company:</strong> ${company || "N/A"}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message}</p>
+            `,
         });
 
         if (error) {
