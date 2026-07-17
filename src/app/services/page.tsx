@@ -89,7 +89,7 @@ export default function ServicesPage() {
         <div className="site-shell">
           {services.map((service) => (
             <article key={service.number} className="grid gap-8 border-t border-line py-12 first:border-t-0 first:pt-0 lg:grid-cols-[90px_1.05fr_.95fr]">
-              <p className="font-heading text-3xl text-copper">{service.number}</p>
+              <p className="font-heading text-3xl text-azure">{service.number}</p>
               <div>
                 <h2 className="font-heading text-3xl leading-tight tracking-[-0.03em] sm:text-4xl">{service.title}</h2>
                 <p className="mt-5 max-w-xl text-base leading-7 text-muted">{service.intro}</p>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
               <ul className="space-y-4 lg:border-l lg:border-line lg:pl-8">
                 {service.items.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-6 text-muted">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-copper" aria-hidden="true" />
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-azure" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
@@ -107,7 +107,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-ink text-paper-light">
+      <section className="grid-texture-dark border-y border-line bg-navy text-paper-light">
         <div className="site-shell grid gap-10 py-16 lg:grid-cols-2 lg:items-center lg:py-20">
           <h2 className="section-title">Not sure which service fits?</h2>
           <div>

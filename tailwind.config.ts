@@ -9,17 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#F3EFE5",
-        "paper-light": "#FBF9F3",
-        ink: "#18231E",
-        forest: "#315B49",
-        copper: "#B45F3B",
-        line: "#CFC8B9",
-        muted: "#666B64",
+        paper: "#F4F7FA",
+        "paper-light": "#FFFFFF",
+        ink: "#0B1533",
+        navy: "#152A5C",
+        azure: "#2D6CA9",
+        mist: "#7EC8DC",
+        line: "#D9E2EC",
+        muted: "#4E5D74",
       },
       fontFamily: {
-        sans: ["Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
-        heading: ["Georgia", "Times New Roman", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "var(--font-sans)", "sans-serif"],
       },
     },
   },

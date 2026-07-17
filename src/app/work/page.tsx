@@ -76,9 +76,9 @@ export default function WorkPage() {
         <div className="site-shell space-y-16">
           {experience.map((item) => (
             <article key={item.number} className="grid border-t border-line pt-8 lg:grid-cols-[90px_1fr]">
-              <p className="font-heading text-3xl text-copper">{item.number}</p>
+              <p className="font-heading text-3xl text-azure">{item.number}</p>
               <div className="mt-7 lg:mt-0">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-forest">{item.context}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-navy">{item.context}</p>
                 <h2 className="mt-4 max-w-4xl font-heading text-4xl leading-tight tracking-[-0.035em] sm:text-5xl">{item.title}</h2>
                 <div className="mt-10 grid gap-8 lg:grid-cols-2">
                   <div>
@@ -101,7 +101,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-forest text-paper-light">
+      <section className="grid-texture-dark border-t border-line bg-navy text-paper-light">
         <div className="site-shell grid gap-8 py-16 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:py-20">
           <h2 className="section-title">Have a similar operating challenge?</h2>
           <div>

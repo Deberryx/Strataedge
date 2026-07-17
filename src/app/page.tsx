@@ -54,8 +54,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="border-b border-line">
-        <div className="site-shell grid min-h-[calc(100vh-72px)] lg:grid-cols-[1.25fr_.75fr]">
+      <section className="grid-texture border-b border-line">
+        <div className="site-shell grid min-h-[calc(100dvh-76px)] lg:grid-cols-[1.25fr_.75fr]">
           <div className="flex flex-col justify-between border-line py-12 lg:border-r lg:py-16 lg:pr-12">
             <div className="flex items-center justify-between gap-6 border-b border-line pb-5">
               <p className="eyebrow">Infrastructure / Automation / Resilience</p>
@@ -66,7 +66,7 @@ export default function HomePage() {
 
             <div className="py-16 lg:py-20">
               <h1 className="display-title max-w-5xl">
-                Infrastructure that holds up in the <span className="italic text-forest">real world.</span>
+                Infrastructure that holds up in the <span className="text-azure">real world.</span>
               </h1>
               <p className="body-large mt-8 max-w-2xl">
                 StrataEdge helps organizations modernize systems, remove operational friction, and build resilience
@@ -82,13 +82,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            <p className="max-w-xl border-l-2 border-copper pl-5 text-sm leading-6 text-muted">
+            <p className="max-w-xl border-l-2 border-azure pl-5 text-sm leading-6 text-muted">
               Built on founder experience across distributed infrastructure, public-health technology, cloud,
               cybersecurity, automation, and software quality.
             </p>
           </div>
 
-          <div className="relative min-h-[520px] overflow-hidden bg-ink lg:min-h-full">
+          <div className="relative min-h-[520px] overflow-hidden bg-navy lg:min-h-full">
             <Image
               src="/derek-photo.jpg"
               alt="Derek Asamoah-Amoyaw, founder of StrataEdge"
@@ -97,7 +97,7 @@ export default function HomePage() {
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover object-top grayscale-[12%]"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent px-6 pb-7 pt-24 text-paper-light sm:px-8">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent px-6 pb-7 pt-24 text-paper-light sm:px-8">
               <p className="text-sm font-bold">Derek Asamoah-Amoyaw</p>
               <p className="mt-1 text-xs text-paper-light/75">Founder · Infrastructure practitioner · Speaker</p>
             </div>
@@ -109,7 +109,7 @@ export default function HomePage() {
         <div className="site-shell grid divide-y divide-line py-2 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {["Practical by design", "Clear ownership", "Ready for handover"].map((item, index) => (
             <div key={item} className="flex items-center gap-4 py-6 sm:px-6 first:pl-0">
-              <span className="font-heading text-2xl text-copper">0{index + 1}</span>
+              <span className="font-heading text-2xl text-azure">0{index + 1}</span>
               <span className="text-sm font-bold uppercase tracking-[0.09em]">{item}</span>
             </div>
           ))}
@@ -135,7 +135,7 @@ export default function HomePage() {
                 key={service.number}
                 className="group grid gap-5 border-b border-line py-8 transition-colors hover:bg-paper-light sm:grid-cols-[80px_1fr_1fr_40px] sm:items-start sm:px-4"
               >
-                <span className="font-heading text-2xl text-copper">{service.number}</span>
+                <span className="font-heading text-2xl text-azure">{service.number}</span>
                 <h3 className="font-heading text-2xl leading-tight sm:text-3xl">{service.title}</h3>
                 <p className="max-w-xl text-base leading-7 text-muted">{service.description}</p>
                 <ArrowDownRight className="hidden h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1 sm:block" aria-hidden="true" />
@@ -150,24 +150,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-forest text-paper-light">
+      <section className="grid-texture-dark border-y border-line bg-navy text-paper-light">
         <div className="site-shell grid lg:grid-cols-[.75fr_1.25fr]">
           <div className="border-paper-light/20 py-16 lg:border-r lg:py-24 lg:pr-12">
-            <p className="eyebrow text-[#e7a17f]">The operating principle</p>
-            <p className="mt-8 font-heading text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.02] tracking-[-0.04em]">
+            <p className="eyebrow text-mist">The operating principle</p>
+            <p className="mt-8 font-heading text-[clamp(2.4rem,5vw,4.8rem)] font-medium leading-[1.04] tracking-[-0.03em] [text-wrap:balance]">
               Build for the environment you have. Prepare for the one you may face.
             </p>
           </div>
           <div className="grid gap-10 border-t border-paper-light/20 py-16 lg:border-t-0 lg:py-24 lg:pl-12 sm:grid-cols-2">
             <div>
-              <p className="font-heading text-5xl text-[#e7a17f]">10+</p>
+              <p className="font-heading text-5xl text-mist">10+</p>
               <p className="mt-4 text-sm leading-6 text-paper-light/75">
                 Years of founder experience across infrastructure operations, systems administration, support, and
                 software quality.
               </p>
             </div>
             <div>
-              <p className="font-heading text-5xl text-[#e7a17f]">Field-led</p>
+              <p className="font-heading text-5xl text-mist">Field-led</p>
               <p className="mt-4 text-sm leading-6 text-paper-light/75">
                 Experience shaped by distributed teams, constrained connectivity, critical services, and the need
                 for clear recovery paths.
@@ -178,7 +178,7 @@ export default function HomePage() {
                 StrataEdge is independent. Founder experience is presented as professional background and does not
                 imply endorsement by current or former employers.
               </p>
-              <Link href="/about" className="mt-7 inline-flex items-center gap-2 border-b border-paper-light pb-1 text-sm font-bold">
+              <Link href="/about" className="mt-7 inline-flex items-center gap-2 border-b border-paper-light pb-1 text-sm font-bold transition-colors duration-200 hover:border-mist hover:text-mist">
                 Meet the founder <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -206,7 +206,7 @@ export default function HomePage() {
                   <span>0{index + 1}</span>
                 </div>
                 <h3 className="mt-8 font-heading text-3xl leading-tight tracking-[-0.025em]">
-                  <Link href={`/insights/${post.slug}`} className="hover:text-forest">{post.title}</Link>
+                  <Link href={`/insights/${post.slug}`} className="hover:text-navy">{post.title}</Link>
                 </h3>
                 <p className="mt-5 text-sm leading-6 text-muted">{post.summary}</p>
                 <Link href={`/insights/${post.slug}`} className="text-link mt-8">

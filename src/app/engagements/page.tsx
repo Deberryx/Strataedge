@@ -56,7 +56,7 @@ export default function EngagementsPage() {
           {engagements.map((item) => (
             <article key={item.number} className="flex flex-col bg-paper-light p-7 sm:p-9">
               <div className="flex items-center justify-between">
-                <p className="font-heading text-3xl text-copper">{item.number}</p>
+                <p className="font-heading text-3xl text-azure">{item.number}</p>
                 <p className="text-xs font-bold uppercase tracking-[0.1em] text-muted">{item.cadence}</p>
               </div>
               <h2 className="mt-14 font-heading text-4xl leading-tight tracking-[-0.035em]">{item.name}</h2>
@@ -86,7 +86,7 @@ export default function EngagementsPage() {
           <ol className="border-t border-line">
             {process.map(([title, description], index) => (
               <li key={title} className="grid gap-4 border-b border-line py-7 sm:grid-cols-[60px_140px_1fr]">
-                <span className="font-heading text-2xl text-copper">0{index + 1}</span>
+                <span className="font-heading text-2xl text-azure">0{index + 1}</span>
                 <span className="font-bold">{title}</span>
                 <span className="text-sm leading-6 text-muted">{description}</span>
               </li>
@@ -95,10 +95,10 @@ export default function EngagementsPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-ink text-paper-light">
+      <section className="grid-texture-dark border-t border-line bg-navy text-paper-light">
         <div className="site-shell flex flex-col gap-8 py-16 sm:flex-row sm:items-center sm:justify-between lg:py-20">
           <div>
-            <p className="eyebrow text-[#e7a17f]">Next step</p>
+            <p className="eyebrow text-mist">Next step</p>
             <h2 className="mt-5 font-heading text-4xl leading-tight tracking-[-0.03em] sm:text-5xl">Bring the problem. We will help frame the work.</h2>
           </div>
           <Link href="/contact" className="inline-flex shrink-0 items-center gap-2 border-b border-paper-light pb-1 text-sm font-bold">

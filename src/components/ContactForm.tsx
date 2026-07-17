@@ -159,7 +159,7 @@ export function ContactForm() {
         <div
           role="status"
           aria-live="polite"
-          className={`flex gap-3 border p-4 text-sm leading-6 ${status.type === "success" ? "border-forest bg-[#edf3ee] text-forest" : "border-[#b95a4e] bg-[#fbefec] text-[#842f27]"}`}
+          className={`flex gap-3 border p-4 text-sm leading-6 ${status.type === "success" ? "border-azure bg-[#eaf2f9] text-navy" : "border-[#b95a4e] bg-[#fbefec] text-[#842f27]"}`}
         >
           {status.type === "success" ? <CheckCircle className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" /> : <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />}
           <p>{status.message}</p>

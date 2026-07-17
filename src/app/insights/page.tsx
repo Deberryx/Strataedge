@@ -31,9 +31,9 @@ export default function InsightsPage() {
             <p className="mt-5 text-xs font-bold uppercase tracking-[0.1em] text-muted">{featured.published} · {featured.readingTime}</p>
           </div>
           <article className="mt-8 lg:mt-0">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-forest">{featured.category}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-navy">{featured.category}</p>
             <h2 className="mt-5 max-w-4xl font-heading text-4xl leading-tight tracking-[-0.04em] sm:text-6xl">
-              <Link href={`/insights/${featured.slug}`} className="hover:text-forest">{featured.title}</Link>
+              <Link href={`/insights/${featured.slug}`} className="hover:text-navy">{featured.title}</Link>
             </h2>
             <p className="body-large mt-7 max-w-3xl">{featured.summary}</p>
             <Link href={`/insights/${featured.slug}`} className="text-link mt-8">Read the article <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
@@ -54,7 +54,7 @@ export default function InsightsPage() {
                   <span>{post.published}</span>
                 </div>
                 <h2 className="mt-7 max-w-xl font-heading text-3xl leading-tight tracking-[-0.03em] sm:text-4xl">
-                  <Link href={`/insights/${post.slug}`} className="hover:text-forest">{post.title}</Link>
+                  <Link href={`/insights/${post.slug}`} className="hover:text-navy">{post.title}</Link>
                 </h2>
                 <p className="mt-5 max-w-xl text-sm leading-6 text-muted">{post.summary}</p>
                 <Link href={`/insights/${post.slug}`} className="text-link mt-7">Read {post.readingTime.replace(" read", "")} <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>

@@ -59,7 +59,7 @@ export default async function InsightPage({ params }: Props) {
               <div>
                 <h1 className="page-title">{post.title}</h1>
                 <p className="body-large mt-8 max-w-3xl">{post.summary}</p>
-                <div className="mt-8 border-l-2 border-copper pl-5">
+                <div className="mt-8 border-l-2 border-azure pl-5">
                   <p className="text-sm font-bold">By Derek Asamoah-Amoyaw</p>
                   <p className="mt-1 text-sm text-muted">Founder, StrataEdge</p>
                 </div>
@@ -102,7 +102,7 @@ export default async function InsightPage({ params }: Props) {
               <article key={item.slug} className={`border-b border-line py-8 md:px-8 ${index === 0 ? "md:border-r md:pl-0" : "md:pr-0"}`}>
                 <p className="text-xs font-bold uppercase tracking-[0.1em] text-muted">{item.category}</p>
                 <h2 className="mt-5 font-heading text-3xl leading-tight tracking-[-0.025em]">
-                  <Link href={`/insights/${item.slug}`} className="hover:text-forest">{item.title}</Link>
+                  <Link href={`/insights/${item.slug}`} className="hover:text-navy">{item.title}</Link>
                 </h2>
                 <Link href={`/insights/${item.slug}`} className="text-link mt-7">Read article <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
               </article>

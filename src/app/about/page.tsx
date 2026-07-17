@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       <section className="border-b border-line">
         <div className="site-shell grid lg:grid-cols-[.85fr_1.15fr]">
-          <div className="relative min-h-[560px] overflow-hidden bg-ink lg:min-h-[760px]">
+          <div className="relative min-h-[560px] overflow-hidden bg-navy lg:min-h-[760px]">
             <Image
               src="/derek-photo.jpg"
               alt="Portrait of Derek Asamoah-Amoyaw"
@@ -72,7 +72,7 @@ export default function AboutPage() {
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover object-top grayscale-[10%]"
             />
-            <div className="absolute bottom-0 left-0 bg-copper px-5 py-4 text-xs font-bold uppercase tracking-[0.13em] text-paper-light">
+            <div className="absolute bottom-0 left-0 bg-azure px-5 py-4 text-xs font-bold uppercase tracking-[0.13em] text-paper-light">
               Founder · Practitioner · Speaker
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <div className="border-t border-line">
             {experience.map(([date, role, detail]) => (
               <div key={date} className="grid gap-3 border-b border-line py-7 sm:grid-cols-[150px_190px_1fr]">
-                <p className="text-xs font-bold uppercase tracking-[0.1em] text-copper">{date}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.1em] text-azure">{date}</p>
                 <h3 className="font-bold">{role}</h3>
                 <p className="text-sm leading-6 text-muted">{detail}</p>
               </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-3">
             {speaking.map((item, index) => (
               <article key={item.title} className="border-b border-line py-8 lg:border-b-0 lg:border-r lg:px-8 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-                <p className="font-heading text-3xl text-copper">0{index + 1}</p>
+                <p className="font-heading text-3xl text-azure">0{index + 1}</p>
                 <h3 className="mt-8 font-heading text-3xl leading-tight tracking-[-0.025em]">{item.title}</h3>
                 <p className="mt-5 text-sm leading-6 text-muted">{item.detail}</p>
               </article>
@@ -137,10 +137,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space bg-forest text-paper-light">
+      <section className="grid-texture-dark section-space bg-navy text-paper-light">
         <div className="site-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p className="eyebrow text-[#e7a17f]">Current credentials</p>
+            <p className="eyebrow text-mist">Current credentials</p>
             <h2 className="mt-5 font-heading text-4xl leading-tight tracking-[-0.03em]">Focused on secure, supportable systems.</h2>
           </div>
           <ul className="border-t border-paper-light/25">

@@ -23,7 +23,7 @@ export function LegalPage({ label, title, introduction, updated = "July 17, 2026
       </header>
       <div className="site-shell grid py-14 lg:grid-cols-[.7fr_1.3fr] lg:py-20">
         <aside className="hidden lg:block">
-          <p className="max-w-xs border-l-2 border-copper pl-5 text-sm leading-6 text-muted">
+          <p className="max-w-xs border-l-2 border-azure pl-5 text-sm leading-6 text-muted">
             Questions about this page can be sent to derekasa@strataedge.tech.
           </p>
         </aside>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -18,13 +19,17 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
-      <div className="site-shell flex h-[72px] items-center justify-between">
-        <Link href="/" className="flex items-center gap-3" aria-label="StrataEdge home">
-          <span className="relative grid h-8 w-8 place-items-center border border-ink" aria-hidden="true">
-            <span className="h-2.5 w-2.5 bg-copper" />
-          </span>
-          <span className="text-sm font-extrabold tracking-[0.14em]">STRATAEDGE</span>
+    <header className="sticky top-0 z-50 border-b border-line bg-paper-light/95 backdrop-blur-sm">
+      <div className="site-shell flex h-[76px] items-center justify-between">
+        <Link href="/" aria-label="Strataedge home" className="shrink-0">
+          <Image
+            src="/logo-full.png"
+            alt="Strataedge"
+            width={779}
+            height={271}
+            priority
+            className="h-11 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
@@ -35,8 +40,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`border-b py-1 text-sm font-semibold transition-colors ${
-                  active ? "border-copper text-ink" : "border-transparent text-muted hover:text-ink"
+                className={`border-b-2 py-1 text-sm font-semibold transition-colors duration-200 ${
+                  active ? "border-azure text-navy" : "border-transparent text-muted hover:text-navy"
                 }`}
               >
                 {link.label}
@@ -50,7 +55,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center border border-line lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-[3px] border border-line transition-colors hover:border-azure lg:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -68,7 +73,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-line py-4 text-base font-semibold"
+                className="border-b border-line py-4 text-base font-semibold transition-colors hover:text-azure"
               >
                 {link.label}
               </Link>
