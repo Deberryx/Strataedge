@@ -3,19 +3,127 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 247, 250, 252;
-  --background-end-rgb: 255, 255, 255;
+  --paper: #f3efe5;
+  --paper-light: #fbf9f3;
+  --ink: #18231e;
+  --forest: #315b49;
+  --copper: #b45f3b;
+  --line: #cfc8b9;
+  --muted: #666b64;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #F7FAFC;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::selection {
+  color: var(--paper-light);
+  background: var(--forest);
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  outline-offset: 4px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--copper);
+}
+
+@layer components {
+  .site-shell {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.2em] text-copper;
+  }
+
+  .display-title {
+    @apply font-heading text-[clamp(3rem,8vw,7.25rem)] font-normal leading-[0.92] tracking-[-0.045em];
+  }
+
+  .page-title {
+    @apply font-heading text-[clamp(2.8rem,7vw,6rem)] font-normal leading-[0.96] tracking-[-0.04em];
+  }
+
+  .section-title {
+    @apply font-heading text-[clamp(2.1rem,5vw,4.25rem)] font-normal leading-[1] tracking-[-0.035em];
+  }
+
+  .body-large {
+    @apply text-lg leading-8 text-muted sm:text-xl sm:leading-9;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 py-3 text-sm font-bold text-paper-light transition-colors hover:bg-forest hover:border-forest;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center border border-ink px-6 py-3 text-sm font-bold text-ink transition-colors hover:bg-ink hover:text-paper-light;
+  }
+
+  .text-link {
+    @apply inline-flex items-center gap-2 border-b border-current pb-1 text-sm font-bold transition-colors hover:text-copper;
+  }
+
+  .field-label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-[0.12em] text-ink;
+  }
+
+  .field-control {
+    @apply w-full rounded-none border border-line bg-paper-light px-4 py-3.5 text-base text-ink placeholder:text-[#8a8c86] focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest;
+  }
+
+  .prose-editorial h2 {
+    @apply mt-14 font-heading text-3xl font-normal leading-tight tracking-[-0.025em] text-ink sm:text-4xl;
+  }
+
+  .prose-editorial h3 {
+    @apply mt-10 text-lg font-bold text-ink;
+  }
+
+  .prose-editorial p {
+    @apply mt-6 text-[1.05rem] leading-8 text-muted;
+  }
+
+  .prose-editorial ul {
+    @apply mt-6 space-y-3 pl-5 text-[1.05rem] leading-8 text-muted;
+  }
+
+  .prose-editorial li {
+    @apply list-disc pl-2 marker:text-copper;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

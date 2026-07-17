@@ -1,131 +1,237 @@
-import { Hero } from "@/components/Hero";
-import { RevealSection } from "@/components/RevealSection";
-import { ServiceCard } from "@/components/ServiceCard";
-import { Cloud, Workflow, BrainCircuit } from "lucide-react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { insights } from "@/lib/insights";
 
 const services = [
   {
-    title: "Cloud Architecture",
-    description: "Scalable, secure, and cost-effective cloud infrastructure designed for high availability.",
-    icon: <Cloud className="w-6 h-6 text-primary" />,
+    number: "01",
+    title: "Infrastructure & cloud",
+    description:
+      "Architecture, modernization, and hybrid connectivity designed around how your teams actually operate.",
   },
   {
-    title: "Automation Workflows",
-    description: "Streamline operations with intelligent automation and custom workflow solutions.",
-    icon: <Workflow className="w-6 h-6 text-primary" />,
+    number: "02",
+    title: "Automation & operations",
+    description:
+      "Practical workflows and scripts that reduce repetition while preserving visibility, control, and recovery.",
   },
   {
-    title: "AI & Analytics",
-    description: "Leverage data-driven insights and predictive analytics to stay ahead of the curve.",
-    icon: <BrainCircuit className="w-6 h-6 text-primary" />,
+    number: "03",
+    title: "Security & resilience",
+    description:
+      "Hardening, continuity planning, and recovery readiness for systems your organization depends on.",
+  },
+  {
+    number: "04",
+    title: "Technical advisory",
+    description:
+      "Clear assessments, roadmaps, and decision support when the right next move is not yet obvious.",
   },
 ];
 
-export default function Home() {
-  return (
-    <div className="flex flex-col gap-20 pb-20">
-      <Hero />
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "StrataEdge",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://strataedge.netlify.app",
+  description:
+    "Infrastructure, automation, cloud, and operational resilience consulting for organizations in the United States and remotely.",
+  areaServed: "United States",
+  founder: {
+    "@type": "Person",
+    name: "Derek Asamoah-Amoyaw",
+    jobTitle: "Founder and Infrastructure Consultant",
+    sameAs: "https://www.linkedin.com/in/derek-asamoah-ctfl-143650b8/",
+  },
+};
 
-      {/* Services Preview */}
-      <section className="container mx-auto px-6">
-        <RevealSection>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-              Comprehensive Tech Solutions
-            </h2>
-            <p className="text-gray-600">
-              We build the digital foundation your business needs to thrive in a connected world.
+export default function HomePage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      <section className="border-b border-line">
+        <div className="site-shell grid min-h-[calc(100vh-72px)] lg:grid-cols-[1.25fr_.75fr]">
+          <div className="flex flex-col justify-between border-line py-12 lg:border-r lg:py-16 lg:pr-12">
+            <div className="flex items-center justify-between gap-6 border-b border-line pb-5">
+              <p className="eyebrow">Infrastructure / Automation / Resilience</p>
+              <p className="hidden text-xs font-semibold uppercase tracking-[0.13em] text-muted sm:block">
+                US-registered · Remote delivery
+              </p>
+            </div>
+
+            <div className="py-16 lg:py-20">
+              <h1 className="display-title max-w-5xl">
+                Infrastructure that holds up in the <span className="italic text-forest">real world.</span>
+              </h1>
+              <p className="body-large mt-8 max-w-2xl">
+                StrataEdge helps organizations modernize systems, remove operational friction, and build resilience
+                without adding unnecessary complexity.
+              </p>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact" className="button-primary">
+                  Request a consultation <ArrowRight className="ml-3 h-4 w-4" aria-hidden="true" />
+                </Link>
+                <Link href="/work" className="button-secondary">
+                  See selected experience
+                </Link>
+              </div>
+            </div>
+
+            <p className="max-w-xl border-l-2 border-copper pl-5 text-sm leading-6 text-muted">
+              Built on founder experience across distributed infrastructure, public-health technology, cloud,
+              cybersecurity, automation, and software quality.
             </p>
           </div>
-        </RevealSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <RevealSection key={index} delay={index * 0.1}>
-              <ServiceCard {...service} />
-            </RevealSection>
+          <div className="relative min-h-[520px] overflow-hidden bg-ink lg:min-h-full">
+            <Image
+              src="/derek-photo.jpg"
+              alt="Derek Asamoah-Amoyaw, founder of StrataEdge"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover object-top grayscale-[12%]"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent px-6 pb-7 pt-24 text-paper-light sm:px-8">
+              <p className="text-sm font-bold">Derek Asamoah-Amoyaw</p>
+              <p className="mt-1 text-xs text-paper-light/75">Founder · Infrastructure practitioner · Speaker</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-paper-light">
+        <div className="site-shell grid divide-y divide-line py-2 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {["Practical by design", "Clear ownership", "Ready for handover"].map((item, index) => (
+            <div key={item} className="flex items-center gap-4 py-6 sm:px-6 first:pl-0">
+              <span className="font-heading text-2xl text-copper">0{index + 1}</span>
+              <span className="text-sm font-bold uppercase tracking-[0.09em]">{item}</span>
+            </div>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href="/services"
-            className="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors"
-          >
-            View All Services <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
-        </div>
       </section>
 
-      {/* About Teaser */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <RevealSection>
-              <div className="relative max-w-sm mx-auto lg:mx-0">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-secondary/10 rounded-full -z-10" />
-                <div className="bg-gray-100 rounded-2xl overflow-hidden aspect-square relative shadow-lg">
-                  <Image
-                    src="/derek-photo.jpg"
-                    alt="Derek Asamoah-Amoyaw"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/10 rounded-full -z-10" />
+      <section className="section-space">
+        <div className="site-shell">
+          <div className="grid gap-8 border-b border-line pb-12 lg:grid-cols-[.7fr_1.3fr]">
+            <p className="eyebrow">What we do</p>
+            <div>
+              <h2 className="section-title max-w-4xl">Good technology should make the operation easier to run.</h2>
+              <p className="body-large mt-7 max-w-3xl">
+                We focus on the foundations: dependable infrastructure, secure access, well-governed automation,
+                recovery readiness, and documentation that stays useful after the project ends.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            {services.map((service) => (
+              <div
+                key={service.number}
+                className="group grid gap-5 border-b border-line py-8 transition-colors hover:bg-paper-light sm:grid-cols-[80px_1fr_1fr_40px] sm:items-start sm:px-4"
+              >
+                <span className="font-heading text-2xl text-copper">{service.number}</span>
+                <h3 className="font-heading text-2xl leading-tight sm:text-3xl">{service.title}</h3>
+                <p className="max-w-xl text-base leading-7 text-muted">{service.description}</p>
+                <ArrowDownRight className="hidden h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:translate-y-1 sm:block" aria-hidden="true" />
               </div>
-            </RevealSection>
-
-            <RevealSection delay={0.2}>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                Expertise You Can Trust
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Led by Derek Asamoah-Amoyaw, a Senior IT Infrastructure Officer and Cloud Engineer, Strataedge brings years of experience in nonprofit tech, cloud deployments, and AI integration.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Our mission is to democratize access to enterprise-grade technology, helping organizations of all sizes scale efficiently and securely.
-              </p>
-              <Link
-                href="/about"
-                className="px-6 py-3 bg-white border border-gray-200 text-primary font-medium rounded-full hover:bg-gray-50 transition-colors"
-              >
-                Learn More About Us
-              </Link>
-            </RevealSection>
+            ))}
+          </div>
+          <div className="mt-8 text-right">
+            <Link href="/services" className="text-link">
+              Explore all services <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="container mx-auto px-6">
-        <RevealSection>
-          <div className="bg-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-[-50%] right-[-10%] w-[600px] h-[600px] bg-secondary/20 rounded-full blur-3xl opacity-30" />
-              <div className="absolute bottom-[-50%] left-[-10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl opacity-30" />
-            </div>
-
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
-                Ready to Transform Your Infrastructure?
-              </h2>
-              <p className="text-blue-100 mb-10 text-lg">
-                Book a free strategy call to discuss your cloud, automation, and AI needs.
+      <section className="border-y border-line bg-forest text-paper-light">
+        <div className="site-shell grid lg:grid-cols-[.75fr_1.25fr]">
+          <div className="border-paper-light/20 py-16 lg:border-r lg:py-24 lg:pr-12">
+            <p className="eyebrow text-[#e7a17f]">The operating principle</p>
+            <p className="mt-8 font-heading text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.02] tracking-[-0.04em]">
+              Build for the environment you have. Prepare for the one you may face.
+            </p>
+          </div>
+          <div className="grid gap-10 border-t border-paper-light/20 py-16 lg:border-t-0 lg:py-24 lg:pl-12 sm:grid-cols-2">
+            <div>
+              <p className="font-heading text-5xl text-[#e7a17f]">10+</p>
+              <p className="mt-4 text-sm leading-6 text-paper-light/75">
+                Years of founder experience across infrastructure operations, systems administration, support, and
+                software quality.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-blue-50 transition-colors"
-              >
-                Get Started Now
+            </div>
+            <div>
+              <p className="font-heading text-5xl text-[#e7a17f]">Field-led</p>
+              <p className="mt-4 text-sm leading-6 text-paper-light/75">
+                Experience shaped by distributed teams, constrained connectivity, critical services, and the need
+                for clear recovery paths.
+              </p>
+            </div>
+            <div className="sm:col-span-2 sm:border-t sm:border-paper-light/20 sm:pt-10">
+              <p className="text-lg leading-8 text-paper-light/85">
+                StrataEdge is independent. Founder experience is presented as professional background and does not
+                imply endorsement by current or former employers.
+              </p>
+              <Link href="/about" className="mt-7 inline-flex items-center gap-2 border-b border-paper-light pb-1 text-sm font-bold">
+                Meet the founder <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
-        </RevealSection>
+        </div>
       </section>
-    </div>
+
+      <section className="section-space bg-paper-light">
+        <div className="site-shell">
+          <div className="flex flex-col gap-6 border-b border-line pb-10 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">Field notes & insights</p>
+              <h2 className="section-title mt-5">Useful thinking, grounded in practice.</h2>
+            </div>
+            <Link href="/insights" className="text-link self-start sm:self-auto">
+              View all insights <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-3">
+            {insights.slice(0, 3).map((post, index) => (
+              <article key={post.slug} className="border-b border-line py-8 lg:border-b-0 lg:border-r lg:px-8 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+                <div className="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[0.1em] text-muted">
+                  <span>{post.category}</span>
+                  <span>0{index + 1}</span>
+                </div>
+                <h3 className="mt-8 font-heading text-3xl leading-tight tracking-[-0.025em]">
+                  <Link href={`/insights/${post.slug}`} className="hover:text-forest">{post.title}</Link>
+                </h3>
+                <p className="mt-5 text-sm leading-6 text-muted">{post.summary}</p>
+                <Link href={`/insights/${post.slug}`} className="text-link mt-8">
+                  Read article <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="site-shell grid py-16 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:py-24">
+          <div>
+            <p className="eyebrow">Start with the problem</p>
+            <h2 className="section-title mt-5 max-w-4xl">Tell us what is slowing the operation down.</h2>
+          </div>
+          <div className="mt-8 lg:mt-0 lg:text-right">
+            <p className="mb-7 text-base leading-7 text-muted">We will help clarify the issue, the risk, and a sensible next step.</p>
+            <Link href="/contact" className="button-primary">
+              Request a consultation <ArrowRight className="ml-3 h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

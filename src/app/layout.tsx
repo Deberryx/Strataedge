@@ -1,28 +1,46 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://strataedge.netlify.app";
 
 export const metadata: Metadata = {
-  title: "Strataedge | Infrastructure • Cloud • Automation",
-  description: "Strataedge is a US-registered tech consulting and automation brand specializing in infrastructure, cloud, and AI.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "StrataEdge | Infrastructure, Automation & Resilience",
+    template: "%s | StrataEdge",
+  },
+  description:
+    "A US-registered technology consultancy helping organizations modernize infrastructure, automate operations, and build resilient systems.",
+  openGraph: {
+    type: "website",
+    siteName: "StrataEdge",
+    title: "StrataEdge | Infrastructure, Automation & Resilience",
+    description:
+      "Practical infrastructure and automation consulting built for real operating environments.",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary",
+    title: "StrataEdge | Infrastructure, Automation & Resilience",
+    description:
+      "Practical infrastructure and automation consulting built for real operating environments.",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={cn(inter.variable, jakarta.variable, "font-sans antialiased bg-background text-primary")}>
+    <html lang="en">
+      <body className="bg-paper font-sans text-ink antialiased">
+        <a
+          href="#main-content"
+          className="sr-only z-[100] bg-ink px-4 py-3 text-paper-light focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="min-h-screen pt-20">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
         <Footer />

@@ -1,54 +1,70 @@
 import Link from "next/link";
-import Image from "next/image";
 
-export const Footer = () => {
-    return (
-        <footer className="bg-white border-t border-gray-100 py-12 mt-20">
-            <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-                    <div className="col-span-1 md:col-span-2">
-                        <Link href="/" className="mb-6 block">
-                            <div className="relative h-12 w-48 md:h-14 md:w-64">
-                                <Image
-                                    src="/logo.png"
-                                    alt="Strataedge"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </Link>
-                        <p className="text-gray-500 text-sm max-w-xs">
-                            Empowering businesses with scalable infrastructure, cloud automation, and AI-driven insights.
-                        </p>
-                    </div>
+const companyLinks = [
+  ["Services", "/services"],
+  ["Selected work", "/work"],
+  ["Engagements", "/engagements"],
+  ["Insights", "/insights"],
+  ["About the founder", "/about"],
+  ["Contact", "/contact"],
+];
 
-                    <div>
-                        <h4 className="font-bold text-primary mb-4">Services</h4>
-                        <ul className="space-y-2 text-sm text-gray-500">
-                            <li><Link href="/services" className="hover:text-primary transition-colors">Cloud Infrastructure</Link></li>
-                            <li><Link href="/services" className="hover:text-primary transition-colors">Automation</Link></li>
-                            <li><Link href="/services" className="hover:text-primary transition-colors">AI & Analytics</Link></li>
-                            <li><Link href="/services" className="hover:text-primary transition-colors">Security</Link></li>
-                        </ul>
-                    </div>
+const legalLinks = [
+  ["Privacy Policy", "/privacy"],
+  ["Terms of Service", "/terms"],
+  ["Refund Policy", "/refund-policy"],
+  ["Accessibility", "/accessibility"],
+];
 
-                    <div>
-                        <h4 className="font-bold text-primary mb-4">Company</h4>
-                        <ul className="space-y-2 text-sm text-gray-500">
-                            <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-                            <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-                        </ul>
-                    </div>
-                </div>
+export function Footer() {
+  return (
+    <footer className="border-t border-line bg-ink text-paper-light">
+      <div className="site-shell py-14 sm:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_.7fr_.7fr]">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-3" aria-label="StrataEdge home">
+              <span className="grid h-8 w-8 place-items-center border border-paper-light/50" aria-hidden="true">
+                <span className="h-2.5 w-2.5 bg-copper" />
+              </span>
+              <span className="text-sm font-extrabold tracking-[0.14em]">STRATAEDGE</span>
+            </Link>
+            <p className="mt-7 max-w-lg font-heading text-3xl leading-tight text-paper-light">
+              Modern infrastructure. Less manual work. Stronger resilience.
+            </p>
+            <p className="mt-6 max-w-md text-sm leading-6 text-paper-light/65">
+              A US-registered technology consultancy serving organizations remotely with practical infrastructure,
+              automation, cloud, and operational resilience expertise.
+            </p>
+          </div>
 
-                <div className="border-t border-gray-100 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                    <p>&copy; {new Date().getFullYear()} Strataedge. All rights reserved.</p>
-                    <div className="flex gap-4 mt-4 md:mt-0">
-                        {/* Social links can go here */}
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-};
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-copper">Navigate</h2>
+            <ul className="mt-5 space-y-3 text-sm text-paper-light/75">
+              {companyLinks.map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-paper-light">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-copper">Legal</h2>
+            <ul className="mt-5 space-y-3 text-sm text-paper-light/75">
+              {legalLinks.map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-paper-light">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-4 border-t border-paper-light/20 pt-6 text-xs text-paper-light/55 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} StrataEdge. All rights reserved.</p>
+          <a href="mailto:derekasa@strataedge.tech" className="hover:text-paper-light">derekasa@strataedge.tech</a>
+        </div>
+      </div>
+    </footer>
+  );
+}

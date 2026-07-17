@@ -1,109 +1,84 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const navLinks = [
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+const links = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Engagements", href: "/engagements" },
+  { label: "Insights", href: "/insights" },
+  { label: "About", href: "/about" },
 ];
 
-export const Navbar = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+export function Navbar() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  return (
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
+      <div className="site-shell flex h-[72px] items-center justify-between">
+        <Link href="/" className="flex items-center gap-3" aria-label="StrataEdge home">
+          <span className="relative grid h-8 w-8 place-items-center border border-ink" aria-hidden="true">
+            <span className="h-2.5 w-2.5 bg-copper" />
+          </span>
+          <span className="text-sm font-extrabold tracking-[0.14em]">STRATAEDGE</span>
+        </Link>
 
-    return (
-        <nav
-            className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100 py-2" : "bg-transparent py-3"
-            )}
-        >
-            <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center">
-                    <div className="relative h-10 w-40 md:h-12 md:w-56">
-                        <Image
-                            src="/logo.png"
-                            alt="Strataedge"
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                    </div>
-                </Link>
-
-                {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                    <Link
-                        href="/contact"
-                        className="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
-                    >
-                        Book a Call
-                    </Link>
-                </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden p-2 text-gray-600"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
-
-            {/* Mobile Nav */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
-                    >
-                        <div className="px-6 py-4 flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-base font-medium text-gray-600 hover:text-primary transition-colors"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <Link
-                                href="/contact"
-                                onClick={() => setIsOpen(false)}
-                                className="px-5 py-3 bg-primary text-white text-center text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
-                            >
-                                Book a Call
-                            </Link>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+          {links.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`border-b py-1 text-sm font-semibold transition-colors ${
+                  active ? "border-copper text-ink" : "border-transparent text-muted hover:text-ink"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <Link href="/contact" className="button-primary min-h-10 px-5 py-2">
+            Request a consultation
+          </Link>
         </nav>
-    );
-};
+
+        <button
+          type="button"
+          className="grid h-11 w-11 place-items-center border border-line lg:hidden"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}
+        </button>
+      </div>
+
+      {open && (
+        <nav id="mobile-navigation" className="border-t border-line bg-paper-light lg:hidden" aria-label="Mobile navigation">
+          <div className="site-shell flex flex-col py-5">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-line py-4 text-base font-semibold"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/contact" onClick={() => setOpen(false)} className="button-primary mt-5">
+              Request a consultation
+            </Link>
+          </div>
+        </nav>
+      )}
+    </header>
+  );
+}
