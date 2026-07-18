@@ -5,6 +5,7 @@ const companyLinks = [
   ["Services", "/services"],
   ["Selected work", "/work"],
   ["Engagements", "/engagements"],
+  ["Pricing", "/pricing"],
   ["Insights", "/insights"],
   ["About the founder", "/about"],
   ["Contact", "/contact"],
