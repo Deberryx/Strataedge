@@ -27,7 +27,122 @@ const speaking = [
   },
   {
     title: "Global Conference on Cyber Capacity Building",
-    detail: "Participant and contributor, 2023 · Cyber capacity, organizational resilience, and the wider security ecosystem.",
+    detail: "Panelist, 2023 · Cyber capacity, organizational resilience, and the wider security ecosystem.",
+  },
+];
+
+const gallery = [
+  {
+    src: "/conference/techforward-derek-on-stage.jpg",
+    width: 1280,
+    height: 853,
+    alt: "Derek Asamoah-Amoyaw presenting from the podium at Tech Forward under blue stage lighting",
+    label: "Tech Forward · 2024",
+    caption: "Presenting cloud and AI in malaria-control operations.",
+  },
+  {
+    src: "/conference/derek-gc3b.jpg",
+    width: 1118,
+    height: 1986,
+    alt: "Derek standing in front of the GC3B conference backdrop in Accra, Ghana",
+    label: "GC3B · 2023",
+    caption: "Global Conference on Cyber Capacity Building, Accra, Ghana.",
+  },
+  {
+    src: "/conference/techforward-crowd.jpg",
+    width: 1280,
+    height: 853,
+    alt: "Conference audience raising green thumbs-up paddles during a Tech Forward session",
+    label: "Tech Forward · 2024",
+    caption: "The room weighs in during a live session.",
+  },
+  {
+    src: "/conference/linux-open-source-summit.jpg",
+    width: 800,
+    height: 1067,
+    alt: "Derek on stage at Open Source Summit North America beside a slide reading “The people you build for may never know your name”",
+    label: "Open Source Summit NA",
+    caption: "Running open-source cloud infrastructure for public health at scale.",
+  },
+  {
+    src: "/conference/derek-kids-training.jpg",
+    width: 1125,
+    height: 844,
+    alt: "Derek with a large group of smiling schoolchildren holding printed technology topic sheets",
+    label: "Community training",
+    caption: "Introducing schoolchildren to technology career paths.",
+  },
+  {
+    src: "/conference/derek.jpg",
+    width: 800,
+    height: 1067,
+    alt: "Derek wearing a speaker badge in front of the Open Source Summit sponsor wall",
+    label: "Open Source Summit NA",
+    caption: "Speaker, Open Source Summit / Embedded Linux Conference.",
+  },
+  {
+    src: "/conference/derek-speaking-open-source-summit.jpg",
+    width: 1280,
+    height: 960,
+    alt: "Derek speaking at the Open Source Summit North America lectern",
+    label: "Open Source Summit NA",
+    caption: "Session discussion at the Linux Foundation summit.",
+  },
+  {
+    src: "/conference/open-source-summit-badge.jpg",
+    width: 800,
+    height: 1067,
+    alt: "Close-up of Derek’s Open Source Summit speaker badge",
+    label: "Open Source Summit NA · 2026",
+    caption: "Speaker badge, Minneapolis.",
+  },
+  {
+    src: "/conference/techforward-derek-writing.jpg",
+    width: 1280,
+    height: 853,
+    alt: "Derek writing on the community mural board at Tech Forward",
+    label: "Tech Forward · 2024",
+    caption: "Adding to the community mural.",
+  },
+  {
+    src: "/conference/derek-gc3b-speaker.jpg",
+    width: 1125,
+    height: 617,
+    alt: "Derek speaking with a microphone on a GC3B panel alongside other panelists",
+    label: "GC3B · 2023",
+    caption: "Panel discussion on cyber capacity building.",
+  },
+  {
+    src: "/conference/linux-crowd.jpg",
+    width: 1280,
+    height: 960,
+    alt: "Keynote hall filled with attendees at Open Source Summit North America",
+    label: "Open Source Summit NA",
+    caption: "Keynote hall at the Linux Foundation summit.",
+  },
+  {
+    src: "/conference/techforward-others-presenting.jpg",
+    width: 1280,
+    height: 853,
+    alt: "Wide view of a Tech Forward ballroom session with a speaker on stage",
+    label: "Tech Forward · 2024",
+    caption: "Main-stage session.",
+  },
+  {
+    src: "/conference/linux-open-source-summit-pictures.jpg",
+    width: 1280,
+    height: 960,
+    alt: "Expo floor at Open Source Summit North America with sponsor booths",
+    label: "Open Source Summit NA",
+    caption: "Expo floor at the summit.",
+  },
+  {
+    src: "/conference/derek-cyber-peace-ngo.jpg",
+    width: 1280,
+    height: 720,
+    alt: "CyberPeace Builders NGO Series webinar graphic featuring Derek",
+    label: "CyberPeace Builders",
+    caption: "NGO Series webinar on practical cyber protection.",
   },
 ];
 
@@ -65,16 +180,16 @@ export default function AboutPage() {
         <div className="site-shell grid lg:grid-cols-[.85fr_1.15fr]">
           <div className="relative min-h-[560px] overflow-hidden bg-navy lg:min-h-[760px]">
             <Image
-              src="/derek-public-profile-full.jpg"
+              src="/founder.jpg"
               alt="Portrait of Derek Asamoah-Amoyaw"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover object-center"
+              className="object-cover object-top"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/70 to-transparent px-5 pb-5 pt-24 text-paper-light">
               <p className="text-xs font-bold uppercase tracking-[0.13em]">Founder · Practitioner · Speaker</p>
-              <p className="mt-2 text-xs text-paper-light/65">Derek’s public professional profile photo</p>
+              <p className="mt-2 text-xs text-paper-light/65">Derek Asamoah-Amoyaw</p>
             </div>
           </div>
           <div className="flex flex-col justify-center py-16 lg:py-24 lg:pl-14">
@@ -120,10 +235,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space border-y border-line">
+      <section id="speaking" className="section-space scroll-mt-20 border-y border-line">
         <div className="site-shell">
           <div className="grid gap-8 border-b border-line pb-10 lg:grid-cols-[.7fr_1.3fr]">
-            <p className="eyebrow">Speaking & contribution</p>
+            <p className="eyebrow">Speaking & community</p>
             <h2 className="section-title">Sharing what the field teaches.</h2>
           </div>
           <div className="grid lg:grid-cols-3">
@@ -134,6 +249,40 @@ export default function AboutPage() {
                 <p className="mt-5 text-sm leading-6 text-muted">{item.detail}</p>
               </article>
             ))}
+          </div>
+
+          <div className="mt-6 border-t border-line pt-12">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="eyebrow">From the field</p>
+                <h3 className="mt-4 font-heading text-3xl leading-tight tracking-[-0.02em] sm:text-4xl">
+                  Conferences, panels, and classrooms.
+                </h3>
+              </div>
+              <p className="max-w-sm text-sm leading-6 text-muted">
+                Moments from Open Source Summit North America, Tech Forward, GC3B in Accra, and community
+                training sessions.
+              </p>
+            </div>
+
+            <div className="mt-10 columns-1 gap-3 sm:columns-2 lg:columns-3">
+              {gallery.map((photo) => (
+                <figure key={photo.src} className="mb-3 break-inside-avoid border border-line bg-paper-light">
+                  <Image
+                    src={photo.src}
+                    width={photo.width}
+                    height={photo.height}
+                    alt={photo.alt}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="h-auto w-full"
+                  />
+                  <figcaption className="border-t border-line px-4 py-3">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-navy">{photo.label}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{photo.caption}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -55,52 +55,40 @@ export default function HomePage() {
       />
 
       <section className="grid-texture border-b border-line">
-        <div className="site-shell grid min-h-[calc(100dvh-76px)] lg:grid-cols-[1.25fr_.75fr]">
-          <div className="flex flex-col justify-between border-line py-12 lg:border-r lg:py-16 lg:pr-12">
-            <div className="flex items-center justify-between gap-6 border-b border-line pb-5">
-              <p className="eyebrow">Infrastructure / Automation / Resilience</p>
-              <p className="hidden text-xs font-semibold uppercase tracking-[0.13em] text-muted sm:block">
-                US-registered · Remote delivery
-              </p>
-            </div>
+        <div className="site-shell py-16 sm:py-20 lg:py-28">
+          <div className="flex items-center justify-between gap-6 border-b border-line pb-5">
+            <p className="eyebrow">Infrastructure / Automation / Resilience</p>
+            <p className="hidden text-xs font-semibold uppercase tracking-[0.13em] text-muted sm:block">
+              US-registered · Remote delivery
+            </p>
+          </div>
 
-            <div className="py-16 lg:py-20">
-              <h1 className="display-title max-w-5xl">
-                Infrastructure that holds up in the <span className="text-azure">real world.</span>
-              </h1>
-              <p className="body-large mt-8 max-w-2xl">
-                StrataEdge helps organizations modernize systems, remove operational friction, and build resilience
-                without adding unnecessary complexity.
-              </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <Link href="/contact" className="button-primary">
-                  Request a consultation <ArrowRight className="ml-3 h-4 w-4" aria-hidden="true" />
-                </Link>
-                <Link href="/work" className="button-secondary">
-                  See selected experience
-                </Link>
-              </div>
+          <div className="py-14 lg:py-20">
+            <h1 className="display-title max-w-5xl">
+              Infrastructure that holds up in the <span className="text-azure">real world.</span>
+            </h1>
+            <p className="body-large mt-8 max-w-2xl">
+              StrataEdge helps organizations modernize systems, remove operational friction, and build resilience
+              without adding unnecessary complexity.
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="button-primary">
+                Request a consultation <ArrowRight className="ml-3 h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link href="/work" className="button-secondary">
+                See selected experience
+              </Link>
             </div>
+          </div>
 
+          <div className="flex flex-col gap-6 border-t border-line pt-6 lg:flex-row lg:items-center lg:justify-between">
             <p className="max-w-xl border-l-2 border-azure pl-5 text-sm leading-6 text-muted">
               Built on founder experience across distributed infrastructure, public-health technology, cloud,
               cybersecurity, automation, and software quality.
             </p>
-          </div>
-
-          <div className="relative min-h-[520px] overflow-hidden bg-navy lg:min-h-full">
-            <Image
-              src="/derek-public-profile-full.jpg"
-              alt="Derek Asamoah-Amoyaw, founder of StrataEdge"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent px-6 pb-7 pt-24 text-paper-light sm:px-8">
-              <p className="text-sm font-bold">Derek Asamoah-Amoyaw</p>
-              <p className="mt-1 text-xs text-paper-light/75">Founder · Infrastructure practitioner · Speaker</p>
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-muted lg:text-right">
+              Speaker · Open Source Summit NA · Tech Forward · GC3B
+            </p>
           </div>
         </div>
       </section>
@@ -182,6 +170,85 @@ export default function HomePage() {
                 Meet the founder <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space border-b border-line">
+        <div className="site-shell">
+          <div className="grid gap-8 border-b border-line pb-12 lg:grid-cols-[.7fr_1.3fr]">
+            <p className="eyebrow">In the field</p>
+            <div>
+              <h2 className="section-title max-w-4xl">The work, shared in public.</h2>
+              <p className="body-large mt-7 max-w-3xl">
+                From Linux Foundation stages to community classrooms, StrataEdge shows up where infrastructure
+                practice gets discussed, taught, and tested.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-12 lg:grid-rows-[340px_260px]">
+            <figure className="group relative col-span-2 aspect-[16/10] overflow-hidden lg:col-span-7 lg:aspect-auto">
+              <Image
+                src="/conference/techforward-derek-on-stage.jpg"
+                alt="Derek Asamoah-Amoyaw presenting from the podium at Tech Forward under blue stage lighting"
+                fill
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent px-5 pb-4 pt-16 text-paper-light">
+                <p className="text-xs font-bold uppercase tracking-[0.13em]">Tech Forward · 2024</p>
+                <p className="mt-1 text-xs text-paper-light/75">Cloud and AI in malaria-control operations</p>
+              </figcaption>
+            </figure>
+
+            <figure className="group relative col-span-1 overflow-hidden lg:col-span-5 lg:row-span-2">
+              <Image
+                src="/conference/linux-open-source-summit.jpg"
+                alt="Derek presenting his talk at Open Source Summit North America, with a slide reading “The people you build for may never know your name”"
+                fill
+                sizes="(max-width: 1024px) 50vw, 42vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent px-5 pb-4 pt-16 text-paper-light">
+                <p className="text-xs font-bold uppercase tracking-[0.13em]">Open Source Summit NA</p>
+                <p className="mt-1 text-xs text-paper-light/75">Public-health cloud infrastructure at scale</p>
+              </figcaption>
+            </figure>
+
+            <figure className="group relative col-span-1 aspect-[4/3] overflow-hidden lg:col-span-3 lg:aspect-auto">
+              <Image
+                src="/conference/derek-gc3b-speaker.jpg"
+                alt="Derek speaking on a panel at the Global Conference on Cyber Capacity Building in Accra, Ghana"
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent px-5 pb-4 pt-16 text-paper-light">
+                <p className="text-xs font-bold uppercase tracking-[0.13em]">GC3B · Accra</p>
+                <p className="mt-1 text-xs text-paper-light/75">Cyber capacity building panel</p>
+              </figcaption>
+            </figure>
+
+            <figure className="group relative col-span-2 aspect-[16/10] overflow-hidden sm:aspect-[16/8] lg:col-span-4 lg:aspect-auto">
+              <Image
+                src="/conference/derek-kids-training.jpg"
+                alt="Derek with a large group of smiling schoolchildren holding printed technology topic sheets after a training session"
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent px-5 pb-4 pt-16 text-paper-light">
+                <p className="text-xs font-bold uppercase tracking-[0.13em]">Community training</p>
+                <p className="mt-1 text-xs text-paper-light/75">Digital skills for the next generation</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="mt-8 text-right">
+            <Link href="/about#speaking" className="text-link">
+              See speaking & community <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
