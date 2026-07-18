@@ -65,15 +65,16 @@ export default function AboutPage() {
         <div className="site-shell grid lg:grid-cols-[.85fr_1.15fr]">
           <div className="relative min-h-[560px] overflow-hidden bg-navy lg:min-h-[760px]">
             <Image
-              src="/derek-photo.jpg"
+              src="/derek-public-profile-full.jpg"
               alt="Portrait of Derek Asamoah-Amoyaw"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover object-top grayscale-[10%]"
+              className="object-cover object-center"
             />
-            <div className="absolute bottom-0 left-0 bg-azure px-5 py-4 text-xs font-bold uppercase tracking-[0.13em] text-paper-light">
-              Founder · Practitioner · Speaker
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/70 to-transparent px-5 pb-5 pt-24 text-paper-light">
+              <p className="text-xs font-bold uppercase tracking-[0.13em]">Founder · Practitioner · Speaker</p>
+              <p className="mt-2 text-xs text-paper-light/65">Derek’s public professional profile photo</p>
             </div>
           </div>
           <div className="flex flex-col justify-center py-16 lg:py-24 lg:pl-14">

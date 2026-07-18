@@ -25,6 +25,19 @@ export default function PrivacyPage() {
         advertising trackers or sell personal information.
       </p>
 
+      <h2>Cookies and consent</h2>
+      <p>
+        This site uses a necessary first-party cookie to remember whether you selected optional analytics or necessary
+        technologies only. That preference is retained for up to six months so the site does not ask on every visit.
+        Essential hosting, security, and request-processing technologies may operate without optional consent because
+        they are needed to deliver the site safely.
+      </p>
+      <p>
+        Optional analytics remain disabled unless you choose “Allow analytics.” StrataEdge does not currently use
+        advertising cookies or sell personal information. You can review or change your selection at any time using
+        the “Cookie settings” button shown on the website.
+      </p>
+
       <h2>How we use information</h2>
       <ul>
         <li>Respond to consultation requests and communicate about potential or active work.</li>

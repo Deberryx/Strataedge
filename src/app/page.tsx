@@ -90,12 +90,12 @@ export default function HomePage() {
 
           <div className="relative min-h-[520px] overflow-hidden bg-navy lg:min-h-full">
             <Image
-              src="/derek-photo.jpg"
+              src="/derek-public-profile-full.jpg"
               alt="Derek Asamoah-Amoyaw, founder of StrataEdge"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-top grayscale-[12%]"
+              className="object-cover object-center"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent px-6 pb-7 pt-24 text-paper-light sm:px-8">
               <p className="text-sm font-bold">Derek Asamoah-Amoyaw</p>
