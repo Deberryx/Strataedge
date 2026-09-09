@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StrataEdge
 
-## Getting Started
+StrataEdge is an independent infrastructure, cloud, automation, and operational-resilience consulting site founded by Derek Asamoah-Amoyaw.
 
-First, run the development server:
+The project is built with Next.js and TypeScript and presents consulting services around infrastructure modernization, automation, security, resilience, and technical advisory work.
+
+## What this project demonstrates
+
+- production-style Next.js application structure;
+- TypeScript-based frontend development;
+- responsive service and content pages;
+- structured metadata for search engines;
+- server-side API routes;
+- contact and engagement workflows;
+- email integration through Resend;
+- Stripe integration points;
+- accessibility, privacy, pricing, refund-policy, and other business-facing routes;
+- founder experience and conference-speaking content presented as structured portfolio material.
+
+## Technology stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Resend
+- Stripe
+- ESLint
+
+## Site structure
+
+The application includes routes for:
+
+- About
+- Services
+- Selected experience / work
+- Engagements
+- Insights
+- Pricing
+- Contact
+- Accessibility
+- Privacy
+- Refund policy
+
+The home page positions StrataEdge around four practical service areas:
+
+1. Infrastructure & cloud
+2. Automation & operations
+3. Security & resilience
+4. Technical advisory
+
+## Engineering approach
+
+The site is designed around a simple principle: infrastructure should be reliable, understandable, recoverable, and appropriate for the environment in which it operates.
+
+The project also intentionally separates independent consulting work from current and former employer experience. Professional background is used as evidence of capability without implying employer endorsement.
+
+## Local development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Copy the example environment file and populate only the values needed for your local environment:
+
+```bash
+cp .env.example .env.local
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production considerations
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before production deployment:
 
-## Learn More
+- keep credentials and API keys in managed environment variables;
+- restrict payment and email integrations to the intended environment;
+- validate contact-form abuse protection and rate limiting;
+- review application logging and monitoring;
+- test accessibility and responsive behavior;
+- confirm backup/recovery requirements for any stateful services added later.
 
-To learn more about Next.js, take a look at the following resources:
+## Skills demonstrated
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`Next.js` · `React` · `TypeScript` · `Cloud Consulting` · `Infrastructure` · `Automation` · `Security` · `Resilience` · `Technical Communication`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Founder:** Derek Asamoah-Amoyaw  
+Senior IT Infrastructure & Cloud Engineer · Microsoft Certified: Azure Administrator Associate (AZ-104)
